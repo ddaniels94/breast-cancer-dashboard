@@ -34,7 +34,8 @@ This interactive web application helps cancer researchers and clinicians explore
 ## Installation
 
 ```bash
-git clone https://github.com/ddaniels94/breast-cancer-dashboard.git
+git clone https://github.com/meech253/breast-cancer-dashboard.git
 cd breast-cancer-dashboard
 pip install -r requirements.txt
+
 python Breast
