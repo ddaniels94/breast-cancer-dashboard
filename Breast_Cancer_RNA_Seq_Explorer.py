@@ -2,11 +2,10 @@ import dash
 from dash import dcc, html, Input, Output, State
 import plotly.graph_objs as go
 import pandas as pd
- 
 
 # Initialize Dash app
 app = dash.Dash(__name__)
-app.title = "Breast Cancer RNA Seq Explorer"
+app.title = "Breast Cancer Survival Explorer"
 
 # Placeholder gene list and subtype options
 GENES = ['TP53', 'BRCA1', 'BRCA2', 'ESR1', 'HER2']
@@ -15,9 +14,9 @@ SUBTYPES = ['Luminal A', 'Luminal B', 'Basal-like', 'HER2-enriched', 'Normal-lik
 # Layout
 app.layout = html.Div([
     html.Div([
-        html.H1("🧬 Breast Cancer RNA Seq Explorer"),
+        html.H1("🧬 Breast Cancer Survival Explorer"),
         html.Div([
-            html.Label("\n","Analysis Type"),
+            html.Label("Analysis Type"),
             dcc.Dropdown(
                 id='analysis-type',
                 options=[
@@ -27,20 +26,20 @@ app.layout = html.Div([
                 ],
                 value='survival'
             ),
-            html.Label("\n","Select Gene(s)"),
+            html.Label("Select Gene(s)"),
             dcc.Dropdown(
                 id='gene-selector',
                 options=[{'label': gene, 'value': gene} for gene in GENES],
                 multi=True,
                 value=['TP53']
             ),
-            html.Label("\n","Select Subtype(s)"),
+            html.Label("Select Subtype(s)"),
             dcc.Checklist(
                 id='subtype-selector',
                 options=[{'label': subtype, 'value': subtype} for subtype in SUBTYPES],
                 value=['Basal-like']
             ),
-            html.Label("\n","Expression Threshold (Percentile)"),
+            html.Label("Expression Threshold (Percentile)"),
             dcc.Slider(
                 id='threshold-slider',
                 min=10, max=90, step=10, value=50,
