@@ -38,4 +38,13 @@ git clone https://github.com/meech253/breast-cancer-dashboard.git
 cd breast-cancer-dashboard
 pip install -r requirements.txt
 
-python Breast
+python Breast_Cancer_RNA_Seq_Explorer.py
+```
+## Usage
+
+After starting the server, open http://localhost:8050 in your browser. 
+
+Select a gene and subtype from the dropdowns to generate survival curves and differential expression plots.
+
+## Live Demo
+Try the dashboard here: [Breast Cancer RNA‑Seq Explorer](https://breast-cancer-rna-seq-explorer.onrender.com/)
