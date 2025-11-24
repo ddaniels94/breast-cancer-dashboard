@@ -2,6 +2,11 @@
 
 This interactive web application helps cancer researchers and clinicians explore how gene expression affects survival outcomes in breast cancer subtypes. Built with Dash and Plotly, it enables real-time survival analysis and differential expression comparisons using TCGA and METABRIC datasets — no coding required.
 
+The system has three main components:
+1.  A data engineering script (`data_processor.py`) that downloads, cleans, normalizes, and harmonizes RNA-Seq and clinical data from the TCGA and METABRIC cohorts.
+2.  An offline deep learning script (`offline_training.py`) that trains a DeepSurv survival model on the TCGA data and uses SHAP (SHapley Additive exPlanations) to interpret the model, generating a ranked list of genes by their prognostic importance.
+3.  A real-time backend API (`backend_api.py`) built with Flask and an interactive frontend built with Dash/Plotly. This application serves the pre-computed SHAP rankings and allows users to perform on-the-fly Kaplan-Meier survival analysis and differential expression analysis for any gene, across different molecular subtypes, in both TCGA and METABRIC datasets without requiring any programming knowledge.
+
 ##  Features
 
 - **Real-Time Survival Analysis**  
@@ -48,3 +53,4 @@ Select a gene and subtype from the dropdowns to generate survival curves and dif
 
 ## Live Demo
 Try the dashboard here: [Breast Cancer RNA‑Seq Explorer](https://breast-cancer-rna-seq-explorer.onrender.com/)
+
